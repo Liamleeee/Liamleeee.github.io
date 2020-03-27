@@ -3,26 +3,26 @@
 ```
 # 安装Yum依赖
 ## Yum初始化配置
-1. sudo yum update
-2. sudo yum upgrade
+-- sudo yum update
+-- sudo yum upgrade
 ## 基本Yum依赖包
-1. yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make
-2. yum install libffi-devel -y
+-- yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make
+-- yum install libffi-devel -y
 ## 下载Python3.7
 -- Windows下载再用SSH传到Linux中：
   打开python的官方网站：https://www.python.org/  -->Downloads-->Source code-->Latest Python 3 Release - Python 3.7.0-->拉到最下面，选择Gzipped source tarball，下载到本地，然后上传到服务器即可。
 -- Linux直接安装：
 wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
 ## 解压安装Python3.7
-1. tar -zxvf Python-3.7.0.tgz
-2. cd Python-3.7.0
-3. ./configure
-4. make&&make install
+-- tar -zxvf Python-3.7.0.tgz
+-- cd Python-3.7.0
+-- ./configure
+-- make&&make install
 ## 配置环境变量
-1. mv /usr/bin/python /usr/bin/python.bak
-2. ln -s /usr/local/bin/python3 /usr/bin/python
-3. mv /usr/bin/pip /usr/bin/pip.bak
-4. ln -s /usr/local/bin/pip3 /usr/bin/pip
+-- mv /usr/bin/python /usr/bin/python.bak
+-- ln -s /usr/local/bin/python3 /usr/bin/python
+-- mv /usr/bin/pip /usr/bin/pip.bak
+-- ln -s /usr/local/bin/pip3 /usr/bin/pip
 ## 验证Python3及pip
 -- 直接输入python以及pip -V 验证python版本是否正确
 ## 配置yum
@@ -36,7 +36,7 @@ For more details see [GitHub Flavored Markdown](https://guides.github.com/featur
 ## Section2 Centos配置基本Django环境
 ```
 ## 升级pip
-pip install --upgrade pip
+-- pip install --upgrade pip
 ## 安装Django
 -- pip install django
 ## 安装基本依赖包
@@ -47,14 +47,14 @@ pip install --upgrade pip
 ## Section3 Centos配置Mysql环境
 ```
 ## 配置命令如下
-1.sudo yum localinstall https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm 
-2.yum install mysql-community-server 
-3.sudo systemctl enable mysqld 
-4.sudo systemctl start mysqld 
-5.sudo systemctl status mysqld 
-6.sudo grep 'temporary password' /var/log/mysqld.log 
-7.sudo mysql_secure_installation 
-8.mysql -u root -p
+-- sudo yum localinstall https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm 
+-- yum install mysql-community-server 
+-- sudo systemctl enable mysqld 
+-- sudo systemctl start mysqld 
+-- sudo systemctl status mysqld 
+-- sudo grep 'temporary password' /var/log/mysqld.log 
+-- sudo mysql_secure_installation 
+-- mysql -u root -p
 ```
 ## Section4 Centos配置Hadoop+Sqark+HIVE环境
 ```
