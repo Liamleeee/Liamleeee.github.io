@@ -37,7 +37,10 @@ yum是依赖python2.7,为此改为python默认python3后要将yum重指定为pyt
 -- pip install django
 ## 安装基本依赖包
 -- pip install pymysql
--- pip install django-filter djangorestframework Pillow sqlparse mysqlclient
+-- pip install django-filter djangorestframework Pillow sqlparse 
+## 安装mysqlclient
+-- 先安装mysql环境，按照section
+
 ```
 
 ## Section3 Centos配置Mysql环境
