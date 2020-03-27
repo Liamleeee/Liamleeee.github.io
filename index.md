@@ -39,7 +39,10 @@ yum是依赖python2.7,为此改为python默认python3后要将yum重指定为pyt
 -- pip install pymysql
 -- pip install django-filter djangorestframework Pillow sqlparse 
 ## 安装mysqlclient
--- 先安装mysql环境，按照section
+-- 先安装mysql环境，按照section3指示
+-- yum install gcc mariadb-devel
+-- yum install mysql-devel gcc gcc-devel python-devel
+-- pip install mysqlclient
 
 ```
 
@@ -92,4 +95,16 @@ yum是依赖python2.7,为此改为python默认python3后要将yum重指定为pyt
 -- echo '10.211.55.100 master' >> /etc/hosts
 -- echo '10.211.55.101 node1' >> /etc/hosts
 -- echo '10.211.55.102 node2' >> /etc/hosts
+
+## 配置master节点
+-- cd /bin/bash
+-- wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+-- rpm -ivh mysql57-community-release-el7-9.noarch.rpm
+-- yum install -y mysql-server mysql-connector-java 
+-- systemctl enable mysqld 
+-- ln -s /usr/share/java/mysql-connector-java.jar $HIVE_HOME/lib/mysql-connector-java.jar
+-- curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+-- python get-pip.py
+-- pip install numpy pandas ipython[all] jupyter virtualenv
+
 ```
