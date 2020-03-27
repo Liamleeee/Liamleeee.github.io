@@ -31,8 +31,6 @@ yum是依赖python2.7,为此改为python默认python3后要将yum重指定为pyt
 -- vi /usr/bin/yum 修改第一行为/usr/bin/python2.7
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
 ## Section2 Centos配置基本Django环境
 ```
 ## 升级pip
