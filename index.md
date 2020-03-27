@@ -33,10 +33,64 @@ yum是依赖python2.7,为此改为python默认python3后要将yum重指定为pyt
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+## Section2 Centos配置基本Django环境
+```
+## 升级pip
+pip install --upgrade pip
+## 安装Django
+-- pip install django
+## 安装基本依赖包
+-- pip install pymysql
+-- pip install django-filter djangorestframework Pillow sqlparse
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Liamleeee/Liamleeee.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+## Section3 Centos配置Mysql环境
+```
+## 配置命令如下
+1.sudo yum localinstall https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm 
+2.yum install mysql-community-server 
+3.sudo systemctl enable mysqld 
+4.sudo systemctl start mysqld 
+5.sudo systemctl status mysqld 
+6.sudo grep 'temporary password' /var/log/mysqld.log 
+7.sudo mysql_secure_installation 
+8.mysql -u root -p
+```
+## Section4 Centos配置Hadoop+Sqark+HIVE环境
+```
+### 配置yum
+-- sudo yum -y update
+-- sudo yum -y upgrade
+-- sudo yum groupinstall -y development
+-- sudo yum install -y java-1.8.0-openjdk net-tools rsync mlocate wget vim \
+	gcc zlib-dev openssl-devel sqlite-devel bzip2-devel python-devel
+### set Java
+-- echo 'export JAVA_HOME=/usr/lib/jvm/jre' >> /etc/profile.d/java.sh
+-- echo 'export PATH=/usr/lib/jvm/jre/bin:$PATH' >> /etc/profile.d/java.sh
 
-### Support or Contact
+### sshkey
+-- sudo ssh-keygen -t rsa -f ~/.ssh/id_rsa
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### hadoop 
+-- tar xzf /vagrant/files/hadoop-2.7.7.tar.gz
+-- mv hadoop-2.7.7 /usr/local/hadoop
+-- cp /vagrant/conf/hadoop/hadoop.sh /etc/profile.d/
+-- cp /vagrant/conf/hadoop/* /usr/local/hadoop/etc/hadoop
+
+### Hive 
+-- tar xzf /vagrant/files/apache-hive-2.1.1-bin.tar.gz
+-- mv apache-hive-2.1.1-bin /usr/local/hive
+-- cp /vagrant/conf/hive/hive.sh /etc/profile.d/
+-- cp /vagrant/conf/hive/* /usr/local/hive/conf
+
+### Spark
+-- tar xzf /vagrant/files/spark-2.4.5-bin-hadoop2.7.tgz
+-- mv spark-2.4.5-bin-hadoop2.7 /usr/local/spark
+-- cp /vagrant/conf/spark/spark.sh /etc/profile.d/
+-- cp /vagrant/conf/spark/* /usr/local/spark/conf
+
+# set hosts
+-- echo '10.211.55.100 master' >> /etc/hosts
+-- echo '10.211.55.101 node1' >> /etc/hosts
+-- echo '10.211.55.102 node2' >> /etc/hosts
+```
