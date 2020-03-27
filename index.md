@@ -1,34 +1,33 @@
 ## Section1 Centos配置Python3环境
 
-```
-## Yum初始化配置
+1. Yum初始化配置
 -- sudo yum update
 -- sudo yum upgrade
-## 基本Yum依赖包
+2. 基本Yum依赖包
 -- yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make
 -- yum install libffi-devel -y
-## 下载Python3.7
+3. 下载Python3.7
 -- Windows下载再用SSH传到Linux中：
   打开python的官方网站：https://www.python.org/  -->Downloads-->Source code-->Latest Python 3 Release - Python 3.7.0-->拉到最下面，选择Gzipped source tarball，下载到本地，然后上传到服务器即可。
 -- Linux直接安装：
 wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
-## 解压安装Python3.7
+4. 解压安装Python3.7
 -- tar -zxvf Python-3.7.0.tgz
 -- cd Python-3.7.0
 -- ./configure
 -- make&&make install
-## 配置环境变量
+5. 配置环境变量
 -- mv /usr/bin/python /usr/bin/python.bak
 -- ln -s /usr/local/bin/python3 /usr/bin/python
 -- mv /usr/bin/pip /usr/bin/pip.bak
 -- ln -s /usr/local/bin/pip3 /usr/bin/pip
-## 验证Python3及pip
+6. 验证Python3及pip
 -- 直接输入python以及pip -V 验证python版本是否正确
-## 配置yum
+7. 配置yum
 yum是依赖python2.7,为此改为python默认python3后要将yum重指定为python2.7
 -- vim /usr/libexec/urlgrabber-ext-down 修改第一行为/usr/bin/python2.7
 -- vi /usr/bin/yum 修改第一行为/usr/bin/python2.7
-```
+
 
 ## Section2 Centos配置基本Django环境
 ```
