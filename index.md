@@ -1,30 +1,35 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/Liamleeee/Liamleeee.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Section1 Centos配置Python3环境
 
 ```markdown
-Syntax highlighted code block
+# 安装Yum依赖
+## Yum初始化配置
+1. sudo yum update
+2. sudo yum upgrade
+## 基本Yum依赖包
+1. yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make
+2. yum install libffi-devel -y
+## 下载Python3.7
+-- Windows下载再用SSH传到Linux中：
+  打开python的官方网站：https://www.python.org/  -->Downloads-->Source code-->Latest Python 3 Release - Python 3.7.0-->拉到最下面，选择Gzipped source tarball，下载到本地，然后上传到服务器即可。
+-- Linux直接安装：
+wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
+## 解压安装Python3.7
+1. tar -zxvf Python-3.7.0.tgz
+2. cd Python-3.7.0
+3. ./configure
+4. make&&make install
+## 配置环境变量
+1. mv /usr/bin/python /usr/bin/python.bak
+2. ln -s /usr/local/bin/python3 /usr/bin/python
+3. mv /usr/bin/pip /usr/bin/pip.bak
+4. ln -s /usr/local/bin/pip3 /usr/bin/pip
+## 验证Python3及pip
+-- 直接输入python以及pip -V 验证python版本是否正确
+## 配置yum
+yum是依赖python2.7,为此改为python默认python3后要将yum重指定为python2.7
+-- vim /usr/libexec/urlgrabber-ext-down 修改第一行为/usr/bin/python2.7
+-- vi /usr/bin/yum 修改第一行为/usr/bin/python2.7
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
