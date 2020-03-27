@@ -1,6 +1,6 @@
 ## Section1 Centos配置Python3环境
 
-```markdown
+```
 # 安装Yum依赖
 ## Yum初始化配置
 1. sudo yum update
@@ -29,7 +29,7 @@ wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
 yum是依赖python2.7,为此改为python默认python3后要将yum重指定为python2.7
 -- vim /usr/libexec/urlgrabber-ext-down 修改第一行为/usr/bin/python2.7
 -- vi /usr/bin/yum 修改第一行为/usr/bin/python2.7
-
+```
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
