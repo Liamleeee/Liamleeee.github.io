@@ -1,8 +1,6 @@
 ## Section1 Centos配置Python3环境
 
 ```
-** 安装Yum依赖 **
-# hi page
 ## Yum初始化配置
 -- sudo yum update
 -- sudo yum upgrade
