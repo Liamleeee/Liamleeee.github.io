@@ -91,6 +91,22 @@ yum是依赖python2.7,为此改为python默认python3后要将yum重指定为pyt
 -- cp /vagrant/conf/spark/spark.sh /etc/profile.d/
 -- cp /vagrant/conf/spark/* /usr/local/spark/conf
 
+### 处理.sh文件格式
+-- 设置完之后会出现bash错误，因为windows下的换行符是\r\n，而linux下的换行符是\n
+-- yum install dos2unix
+-- cd /etc/profile.d/
+-- dos2unix hadoop.sh
+-- dos2unix spark.sh
+-- dos2unix hive.sh
+ps. 若出现了bash错误导致大部分linux命令都无法使用时：
+-- 加入临时变量(重启后消失
+	export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+-- 修改profile文件：
+	vi /etc/profile
+	加入：export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+
+
 # set hosts
 -- echo '10.211.55.100 master' >> /etc/hosts
 -- echo '10.211.55.101 node1' >> /etc/hosts
