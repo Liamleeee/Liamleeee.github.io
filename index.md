@@ -66,6 +66,7 @@ yum是依赖python2.7,为此改为python默认python3后要将yum重指定为pyt
 -- sudo yum groupinstall -y development
 -- sudo yum install -y java-1.8.0-openjdk net-tools rsync mlocate wget vim \
 	gcc zlib-dev openssl-devel sqlite-devel bzip2-devel python-devel
+-- sudo yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 ### set Java
 -- echo 'export JAVA_HOME=/usr/lib/jvm/jre' >> /etc/profile.d/java.sh
 -- echo 'export PATH=/usr/lib/jvm/jre/bin:$PATH' >> /etc/profile.d/java.sh
@@ -108,6 +109,7 @@ ps. 若出现了bash错误导致大部分linux命令都无法使用时：
 
 
 # set hosts
+-- 服务器公网私网不能穿透，所以用ifconfig看看ip情况，再设置hosts
 -- echo '10.211.55.100 master' >> /etc/hosts
 -- echo '10.211.55.101 node1' >> /etc/hosts
 -- echo '10.211.55.102 node2' >> /etc/hosts
