@@ -126,3 +126,7 @@ ps. 若出现了bash错误导致大部分linux命令都无法使用时：
 -- pip install numpy pandas ipython[all] jupyter virtualenv
 
 ```
+## Section5 Centos配置Influxdb环境
+'''
+##
+'''
