@@ -128,5 +128,23 @@ ps. 若出现了bash错误导致大部分linux命令都无法使用时：
 ```
 ## Section5 Centos配置Influxdb环境
 '''
-##
+## 下载influxdb
+-- cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
+-- [influxdb]
+-- name = InfluxDB Repository - RHEL \$releasever
+-- baseurl = https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable
+-- enabled = 1
+-- gpgcheck = 1
+-- gpgkey = https://repos.influxdata.com/influxdb.key
+-- EOF
+## 安装influxdb
+-- sudo yum install influxdb
+##启动influxdb
+-- sudo systemctl start influxdb
+## 下载influxdb WEB管理插件Chronograf
+-- wget https://dl.influxdata.com/chronograf/releases/chronograf-1.6.1.x86_64.rpm
+-- sudo yum localinstall chronograf-1.6.1.x86_64.rpm
+## 启动Chronograf
+-- systemctl start chronograf
+## 访问8888端口即可
 '''
