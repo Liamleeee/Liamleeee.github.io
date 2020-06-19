@@ -127,7 +127,7 @@ ps. 若出现了bash错误导致大部分linux命令都无法使用时：
 
 ```
 ## Section5 Centos配置Influxdb环境
-'''
+```
 ## 下载influxdb
 -- cat <<EOF | sudo tee /etc/yum.repos.d/influxdb.repo
 -- [influxdb]
@@ -147,4 +147,4 @@ ps. 若出现了bash错误导致大部分linux命令都无法使用时：
 ## 启动Chronograf
 -- systemctl start chronograf
 ## 访问8888端口即可
-'''
+```
